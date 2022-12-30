@@ -35,6 +35,7 @@
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -97,7 +98,7 @@
     </script>
 
     <!-- Required datatable js -->
-    <script src="{{ asset('/ui/backend/assets/libs/datatables.net/js/jquery.dataTables.min.js"') }}"></script>
+    <script src="{{ asset('/ui/backend/assets/libs/datatables.net/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('/ui/backend/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
 
     <!-- Responsive examples -->
@@ -107,6 +108,9 @@
     </script>
 
     <script src="{{ asset('/ui/backend/assets/js/pages/dashboard.init.js') }}"></script>
+
+    <!-- Datatable init js -->
+    <script src="{{ asset('ui/backend/assets/js/pages/datatables.init.js') }}"></script>
 
     <!-- App js -->
     <script src="{{ asset('/ui/backend/assets/js/app.js') }}"></script>

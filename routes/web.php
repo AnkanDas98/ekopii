@@ -1,8 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\HomeSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,18 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::put('/admin/profile/edit/{id}', 'update')->name('admin.profile.update');
         Route::get('/admin/profile/edit/password/{id}', 'changePassword')->name('admin.change.password');
         Route::put('/admin/profile/edit/password/{id}', 'updatePassword')->name('admin.change.password');
+    });
+
+    Route::prefix('slider')->group(function(){
+        Route::controller(HomeSliderController::class)->group(function(){
+            Route::get('/', 'getAllSlider')->name('all.slider');
+            Route::get('/add', 'addSlider')->name('add.slider');
+            Route::post('/add', 'storeSlider')->name('store.slider');
+            Route::get('/edit/{id}', 'editSlider')->name('edit.slider');
+            Route::put('/update/{id}', 'updateSlider')->name('update.slider');
+            Route::patch('/status', 'updateSliderStaus')->name('update.slider.status');
+            Route::delete('/delete/{id}', 'deleteSlider')->name('delete.slider');
+        });
     });
 });
 

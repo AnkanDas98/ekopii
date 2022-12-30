@@ -1,10 +1,12 @@
+@php
+    $prefix = Request::route()->getPrefix();
+    $route = Route::current()->getName();
+    
+@endphp
+
 <div class="vertical-menu">
 
     <div data-simplebar class="h-100">
-
-    
-     
-
         <!--- Sidemenu -->
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
@@ -24,15 +26,19 @@
                         <span>Calendar</span>
                     </a>
                 </li>
-    
+
                 <li>
-                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                    <a href="javascript: void(0);"
+                        class="has-arrow waves-effect {{ $prefix == '/slider' ? 'active' : '' }}">
                         <i class="ri-mail-send-line"></i>
-                        <span>Email</span>
+                        <span>Home Slider</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="email-inbox.html">Inbox</a></li>
-                        <li><a href="email-read.html">Read Email</a></li>
+                        <li class="{{ $route == 'all.slider' ? 'active' : '' }}"><a
+                                href="{{ route('all.slider') }}">Sliders</a>
+                        </li>
+                        <li class="{{ $route == 'add.slider' ? 'active' : '' }}"><a href="{{ route('add.slider') }}">Add
+                                Slider</a></li>
                     </ul>
                 </li>
 
