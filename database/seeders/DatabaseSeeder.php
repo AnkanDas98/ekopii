@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Ankan',
-        //     'email' => 'admin@gmail.com',
-        //     'password' => bcrypt('ank123456'),
-        //     'created_at' => Carbon::now(),
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Ananda',
+            'email' => 'admin2@gmail.com',
+            'password' => bcrypt('12345678'),
+            'created_at' => Carbon::now(),
+        ]);
     }
 }

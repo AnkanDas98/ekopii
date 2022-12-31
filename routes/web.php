@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\HomeSliderController;
+use App\Http\Controllers\Admin\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,6 +44,36 @@ Route::middleware('auth', 'verified')->group(function () {
             Route::put('/update/{id}', 'updateSlider')->name('update.slider');
             Route::patch('/status', 'updateSliderStaus')->name('update.slider.status');
             Route::delete('/delete/{id}', 'deleteSlider')->name('delete.slider');
+
+            // ==========for Service ================
+            // Route::get('/', 'getAllService')->name('all.service');
+            // Route::get('/add', 'addService')->name('add.service');
+            // Route::post('/add', 'storeService')->name('store.service');
+            // Route::get('/edit/{id}', 'editService')->name('edit.service');
+            // Route::put('/update/{id}', 'updateService')->name('update.service');
+            // Route::patch('/status', 'updateServiceStaus')->name('update.service.status');
+            // Route::delete('/delete/{id}', 'deleteService')->name('delete.service');
+        });
+    });
+
+    // ==========for Service ================
+    Route::prefix('service')->group(function(){
+        Route::controller(ServiceController::class)->group(function(){
+            // Route::get('/', 'getAllSlider')->name('all.slider');
+            // Route::get('/add', 'addSlider')->name('add.slider');
+            // Route::post('/add', 'storeSlider')->name('store.slider');
+            // Route::get('/edit/{id}', 'editSlider')->name('edit.slider');
+            // Route::put('/update/{id}', 'updateSlider')->name('update.slider');
+            // Route::patch('/status', 'updateSliderStaus')->name('update.slider.status');
+            // Route::delete('/delete/{id}', 'deleteSlider')->name('delete.slider');
+
+            Route::get('/', 'getAllService')->name('all.service');
+            Route::get('/add', 'addService')->name('add.service');
+            Route::post('/add', 'storeService')->name('store.service');
+            Route::get('/edit/{id}', 'editService')->name('edit.service');
+            Route::put('/update/{id}', 'updateService')->name('update.service');
+            Route::patch('/status', 'updateServiceStaus')->name('update.service.status');
+            Route::delete('/delete/{id}', 'deleteService')->name('delete.service');
         });
     });
 });

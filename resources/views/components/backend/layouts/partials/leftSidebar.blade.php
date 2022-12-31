@@ -42,6 +42,22 @@
                     </ul>
                 </li>
 
+                <!-- =================for Services============== -->
+                <li>
+                    <a href="javascript: void(0);"
+                        class="has-arrow waves-effect {{ $prefix == '/service' ? 'active' : '' }}">
+                        <i class="ri-mail-send-line"></i>
+                        <span>Service</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a
+                                >Services</a>
+                        </li>
+                        <li ><a >Add
+                                Service</a></li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-layout-3-line"></i>
