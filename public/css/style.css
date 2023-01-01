@@ -1,39 +1,30 @@
-.carousel {
-    position: relative;
-    text-align: center;
-    box-sizing: border-box;
-}
-
-.carousel__viewport {
-    overflow: hidden;
-}
-
-.carousel__track {
+.contact-btn:link{
+    padding: 9px 32px !important;
+    background-color: #3ec1d5;
     display: flex;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    align-items: center;
+    justify-content: center;
+    margin-left: 12px;
+    border-radius: 12px;
+    color: #000;
 }
 
-.gallery-section .carousel__prev, .gallery-section .carousel__next {
-    border: none;
-    background: #fff;
+.contact-btn:hover{
+    background-color: #538991;
 }
 
-.gallery-section .carousel__prev, .gallery-section .carousel__next {
-    border: none;
-    background: #fff;
+@media(max-width: 1000px){
+    .contact-btn:link{
+        padding: 10px 20px !important;
+        background: none;
+        color: #0d2529;
+        display: inline;
+        margin-left: 0;
+        border-radius: 0;
+        border: none;
+    }
+
+    .contact-btn:hover{
+        background-color: none;
+    } 
 }
-
-.gallery-section .carousel__prev {
-    left: 15px;
-}
-
-
-.carousel__icon {
-    width: var(--vc-icn-width);
-    height: var(--vc-icn-width);
-    fill: currentColor;
-    vertical-align: middle;
-}
-

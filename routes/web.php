@@ -6,8 +6,9 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\AboutController;
-use App\Http\Controllers\Admin\HomeSliderController;
+use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\HomeSliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,9 +23,9 @@ use App\Http\Controllers\Admin\ServiceController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'showAbout'])->name('about');
+Route::post('/contact', [HomeController::class, 'postContact'])->name('store.contact');
 
 Route::get('/admin/login', [AdminController::class, 'viewLogin'])->middleware('guest');
-
 
 Route::middleware('auth', 'verified')->group(function () {
     Route::controller(AdminController::class)->group(function(){
@@ -84,6 +85,13 @@ Route::middleware('auth', 'verified')->group(function () {
             Route::post('/store', 'storeAboutPageSetting')->name('store.setting');
             Route::get('/edit', 'editAboutPageSetting')->name('about.edit');
             Route::put('/edit/{id}', 'updateAboutPageSetting')->name('about.update');
+        });
+    });
+
+    Route::prefix('message')->group(function(){
+        Route::controller(MessageController::class)->group(function(){
+            Route::get('/all', 'getAllMessages')->name('all.message');
+     
         });
     });
 });

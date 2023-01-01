@@ -377,11 +377,12 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
-                                <a href="#"><img src="assets/img/portfolio/1.jpg" alt="" /></a>
+                                <a href="#"><img src="{{ asset('frontend/assets/img/portfolio/1.jpg') }}"
+                                        alt="" /></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
                                         <a class="portfolio-lightbox" data-gallery="myGallery"
-                                            href="assets/img/portfolio/1.jpg">
+                                            href="{{ asset('frontend/assets/img/portfolio/1.jpg') }}">
                                             <h4>Business City</h4>
                                             <span>Web Development</span>
                                         </a>
@@ -396,11 +397,12 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
-                                <a href="#"><img src="assets/img/portfolio/2.jpg" alt="" /></a>
+                                <a href="#"><img src="{{ asset('frontend/assets/img/portfolio/2.jpg') }}"
+                                        alt="" /></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
                                         <a class="portfolio-lightbox" data-gallery="myGallery"
-                                            href="assets/img/portfolio/2.jpg">
+                                            href="{{ asset('frontend/assets/img/portfolio/2.jpg') }}">
                                             <h4>Blue Sea</h4>
                                             <span>Photosho</span>
                                         </a>
@@ -415,11 +417,12 @@
                     <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
-                                <a href="#"><img src="assets/img/portfolio/3.jpg" alt="" /></a>
+                                <a href="#"><img src="{{ asset('frontend/assets/img/portfolio/3.jpg') }}"
+                                        alt="" /></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
                                         <a class="portfolio-lightbox" data-gallery="myGallery"
-                                            href="assets/img/portfolio/3.jpg">
+                                            href="{{ asset('frontend/assets/img/portfolio/3.jpg') }}">
                                             <h4>Beautiful Nature</h4>
                                             <span>Web Design</span>
                                         </a>
@@ -859,31 +862,30 @@
                         <!-- Start  contact -->
                         <div class="col-md-6">
                             <div class="form contact-form">
-                                <form action="#" method="post" role="form" class="php-email-form">
+                                <form action="#" class="php-email-form">
                                     <div class="form-group">
-                                        <input type="text" name="name" class="form-control" id="name"
-                                            placeholder="Your Name" required />
+                                        <input type="text" id="contactName" name="name" class="form-control"
+                                            id="name" placeholder="Your Name" required />
                                     </div>
                                     <div class="form-group mt-3">
-                                        <input type="email" class="form-control" name="email" id="email"
-                                            placeholder="Your Email" required />
+                                        <input type="email" id="contactEmail" class="form-control" name="email"
+                                            id="email" placeholder="Your Email" required />
                                     </div>
                                     <div class="form-group mt-3">
-                                        <input type="text" class="form-control" name="subject" id="subject"
-                                            placeholder="Subject" required />
+                                        <input type="text" id="contactSubject" class="form-control"
+                                            name="subject" id="subject" placeholder="Subject" required />
                                     </div>
                                     <div class="form-group mt-3">
-                                        <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                                        <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="Message" required></textarea>
                                     </div>
-                                    <div class="my-3">
-                                        <div class="loading">Loading</div>
-                                        <div class="error-message"></div>
-                                        <div class="sent-message">
-                                            Your message has been sent. Thank you!
-                                        </div>
-                                    </div>
+                                    {{-- <div class="my-3">
+                                        <div id="messageLodingBtn" class="loading">Loading</div>
+                                    </div> --}}
                                     <div class="text-center">
-                                        <button type="submit">Send Message</button>
+                                        <button id="messageBtn" type="submit"><span id="messageBtnText">Send
+                                                Message</span> <span class="loading" id="loadingIcon"
+                                                style="display: none"></span> </button>
+
                                     </div>
                                 </form>
                             </div>

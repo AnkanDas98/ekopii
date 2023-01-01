@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\About;
+use App\Models\Contact;
 use App\Models\AboutFeature;
 use App\Models\AboutGallery;
 use Illuminate\Http\Request;
@@ -20,5 +22,26 @@ class HomeController extends Controller
         $about = About::first();
         $galleyImages = AboutGallery::all();
         return view('frontend.about', compact('about','galleyImages'));
+    }
+
+    public function postContact(Request $request){
+        $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'subject' => 'required|min:3',
+            'message' => 'required|min:7'
+        ]);
+        
+        Contact::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            'created_at' => Carbon::now()
+        ]);
+
+        return response()->json([
+            'success' => 'Your message has been sent. Thank you!'
+        ]);
     }
 }

@@ -368,6 +368,11 @@ div#preloader {
   color: #3ec1d5;
 }
 
+
+.navbar .contact-btn.active {
+  color: #4d4d4d !important;
+}
+
 .navbar .dropdown ul {
   display: block;
   position: absolute;

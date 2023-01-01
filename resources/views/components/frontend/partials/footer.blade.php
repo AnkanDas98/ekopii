@@ -6,7 +6,8 @@
                     <div class="footer-content">
                         <div class="footer-head">
                             <div class="footer-logo">
-                                <h2><img src="assets/img/Apps-Icon.png" alt="" /> kopii</h2>
+                                <h2><img src="{{ asset('frontend/assets/img/Apps-Icon.png') }}" alt="" /> kopii
+                                </h2>
                             </div>
 
                             <p>

@@ -36,12 +36,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        $i = 1;
-                                    @endphp
-                                    @foreach ($sliders as $slider)
+
+                                    @foreach ($sliders as $key => $slider)
                                         <tr>
-                                            <td>{{ $i++ }}</td>
+                                            <td>{{ $key + 1 }}</td>
                                             <td>{{ $slider->slider_short_title }}</td>
                                             <td>{{ $slider->slider_long_title }}</td>
                                             <td><img src="{{ asset('storage/' . $slider->slider_image) }}"

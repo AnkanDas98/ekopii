@@ -8,7 +8,7 @@
     <title>{{ $pageTitle }}</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicons -->
     <link href="assets/img/Icon.png" rel="icon" />
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
@@ -52,6 +52,7 @@
     <script src="{{ asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendor/php-email-form/validate.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Template Main JS File -->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
@@ -61,6 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
         integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous">
     </script>
+    <script src="{{ asset('js/front.js') }}"></script>
 </body>
 
 </html>
