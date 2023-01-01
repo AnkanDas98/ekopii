@@ -18,7 +18,7 @@
                         <div class="well-left">
                             <div class="single-well">
                                 <a href="#">
-                                    <img src="assets/img/about/3.jpg" alt="" />
+                                    <img src="{{ asset('frontend/assets/img/about/3.jpg') }}" alt="" />
                                 </a>
                             </div>
                         </div>
@@ -28,25 +28,20 @@
                         <div class="well-middle">
                             <div class="single-well">
                                 <a href="#">
-                                    <h4 class="sec-head">project Maintenance</h4>
+                                    <h4 class="sec-head">About Us</h4>
                                 </a>
                                 <p>
-                                    Redug Lagre dolor sit amet, consectetur adipisicing elit.
-                                    Itaque quas officiis iure aspernatur sit adipisci quaerat
-                                    unde at nequeRedug Lagre dolor sit amet, consectetur
-                                    adipisicing elit. Itaque quas officiis iure
+                                    {{ $about->short_description }}
                                 </p>
                                 <ul>
-                                    <li><i class="bi bi-check"></i> Interior design Package</li>
-                                    <li><i class="bi bi-check"></i> Building House</li>
-                                    <li>
-                                        <i class="bi bi-check"></i> Reparing of Residentail Roof
-                                    </li>
-                                    <li>
-                                        <i class="bi bi-check"></i> Renovaion of Commercial Office
-                                    </li>
-                                    <li><i class="bi bi-check"></i> Make Quality Products</li>
+                                    @foreach ($aboutFeatures as $feature)
+                                        <li><i class="bi bi-check"></i>{{ $feature->feature }}</li>
+                                    @endforeach
+
                                 </ul>
+                                <a href="{{ route('about') }}" style="margin-top: 16px; "
+                                    class="text-info scrollto animate__animated animate__fadeInUp">Read
+                                    More...</a>
                             </div>
                         </div>
                     </div>

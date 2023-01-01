@@ -2,8 +2,10 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\HomeSliderController;
 use App\Http\Controllers\Admin\ServiceController;
 
@@ -18,9 +20,8 @@ use App\Http\Controllers\Admin\ServiceController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.home');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/about', [HomeController::class, 'showAbout'])->name('about');
 
 Route::get('/admin/login', [AdminController::class, 'viewLogin'])->middleware('guest');
 
@@ -74,6 +75,15 @@ Route::middleware('auth', 'verified')->group(function () {
             Route::put('/update/{id}', 'updateService')->name('update.service');
             Route::patch('/status', 'updateServiceStaus')->name('update.service.status');
             Route::delete('/delete/{id}', 'deleteService')->name('delete.service');
+        });
+    });
+
+    Route::prefix('about')->group(function(){
+        Route::controller(AboutController::class)->group(function(){
+            Route::get('/setting', 'getAboutPageSetting')->name('about.setting');
+            Route::post('/store', 'storeAboutPageSetting')->name('store.setting');
+            Route::get('/edit', 'editAboutPageSetting')->name('about.edit');
+            Route::put('/edit/{id}', 'updateAboutPageSetting')->name('about.update');
         });
     });
 });

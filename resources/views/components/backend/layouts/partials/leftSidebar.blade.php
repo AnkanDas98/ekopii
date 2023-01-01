@@ -1,7 +1,6 @@
 @php
     $prefix = Request::route()->getPrefix();
     $route = Route::current()->getName();
-    
 @endphp
 
 <div class="vertical-menu">
@@ -55,6 +54,24 @@
                         </li>
                         <li ><a >Add
                                 Service</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);"
+                        class="has-arrow waves-effect {{ $prefix == '/about' ? 'active' : '' }}">
+                        <i class="ri-mail-send-line"></i>
+                        <span>About Page Setting</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li class="{{ $route == 'about.setting' ? 'active' : '' }}"><a
+                                href="{{ route('about.setting') }}">Page Setting</a>
+                        </li>
+
+                        <li class="{{ $route == 'about.edit' ? 'active' : '' }}"><a
+                                href="{{ route('about.edit') }}">Page Update</a>
+                        </li>
+
                     </ul>
                 </li>
 

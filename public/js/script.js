@@ -1,3 +1,15 @@
+function appendFeatures(e) {
+    e.preventDefault();
+    i++;
+    const newNode = document.createElement("textarea");
+    newNode.setAttribute("name", `addMoreInputFields[${i}][feature]`);
+    newNode.classList.add("w-50");
+    newNode.classList.add("form-control");
+    newNode.style.marginBottom = "12px";
+    newNode.setAttribute("placeholder", `Add Feature ${i + 1}`);
+    document.getElementById("featureBox").appendChild(newNode, null);
+}
+
 const image_input = document.querySelector("#image");
 if (image_input) {
     image_input.addEventListener("change", function () {
@@ -36,3 +48,7 @@ forms.forEach((form) => {
         });
     });
 });
+
+const featureBtn = document.getElementById("featureBtn");
+let i = featureBtn.dataset.featureLength ? featureBtn.dataset.featureLength : 0;
+featureBtn && featureBtn.addEventListener("click", (e) => appendFeatures(e));

@@ -1,6 +1,6 @@
 @php
     $sliders = App\Models\HomeSlider::where('status', 1)
-        ->limit(3)
+        ->limit(5)
         ->get();
 @endphp
 

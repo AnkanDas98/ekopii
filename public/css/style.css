@@ -1,0 +1,39 @@
+.carousel {
+    position: relative;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.carousel__viewport {
+    overflow: hidden;
+}
+
+.carousel__track {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.gallery-section .carousel__prev, .gallery-section .carousel__next {
+    border: none;
+    background: #fff;
+}
+
+.gallery-section .carousel__prev, .gallery-section .carousel__next {
+    border: none;
+    background: #fff;
+}
+
+.gallery-section .carousel__prev {
+    left: 15px;
+}
+
+
+.carousel__icon {
+    width: var(--vc-icn-width);
+    height: var(--vc-icn-width);
+    fill: currentColor;
+    vertical-align: middle;
+}
+
