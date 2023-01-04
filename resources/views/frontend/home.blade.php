@@ -1,5 +1,8 @@
 <x-frontend.layouts.master>
     <x-slot name="pageTitle">ekopii</x-slot>
+
+    <x-slot name="pageTitle">Ekopii</x-slot>
+
     <x-frontend.partials.hero />
     <main id="main">
         <!-- ======= About Section ======= -->
@@ -73,7 +76,9 @@
                                             <img src="{{ asset('storage/' . $service->landing_page_logo) }}"
                                                 alt="{{ $service->service_title }}">
                                         </a>
-                                        <h4>{{ $service->service_title }}</h4>
+                                        <a href="{{ route('service', $service->id) }}">
+                                            <h4>{{ $service->service_title }}</h4>
+                                        </a>
                                         <p>
                                             {{ $service->landing_page_short_description }}
                                         </p>
@@ -89,7 +94,7 @@
         </div>
         <!-- End Services Section -->
 
-        <!-- ======= Team Section ======= -->
+        {{-- <!-- ======= Team Section ======= -->
         <div id="team" class="our-team-area area-padding">
             <div class="container">
                 <div class="row">
@@ -235,9 +240,9 @@
                 </div>
             </div>
         </div>
-        <!-- End Team Section -->
+        <!-- End Team Section --> --}}
 
-        <!-- ======= Rviews Section ======= -->
+        {{-- <!-- ======= Rviews Section ======= -->
         <div class="reviews-area">
             <div class="row g-0">
                 <div class="col-lg-6">
@@ -255,7 +260,7 @@
                 </div>
             </div>
         </div>
-        <!-- End Rviews Section -->
+        <!-- End Rviews Section --> --}}
 
         <!-- ======= Portfolio Section ======= -->
         <div id="portfolio" class="portfolio-area area-padding fix">
@@ -273,15 +278,15 @@
                         <ul id="portfolio-flters">
                             <li data-filter="*" class="filter-active">All</li>
                             <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-card">Card</li>
                             <li data-filter=".filter-web">Web</li>
+                            <li data-filter=".filter-graphic">Graphic Design</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="row awesome-project-content portfolio-container">
                     <!-- portfolio-item start -->
-                    <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
+                    {{-- <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app portfolio-item">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
                                 <a href="#"><img src="{{ asset('frontend/assets/img/portfolio/1.jpg') }}"
@@ -297,21 +302,21 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- portfolio-item end -->
 
                     <!-- portfolio-item start -->
                     <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
-                                <a href="#"><img src="{{ asset('frontend/assets/img/portfolio/2.jpg') }}"
-                                        alt="" /></a>
+                                <a target="_blank" href="http://www.macroboiler-bd.com/"><img
+                                        src="{{ asset('storage/images/portfolio_web1.jpg') }}" alt=""
+                                        style="height: 285px" /></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
-                                        <a class="portfolio-lightbox" data-gallery="myGallery"
-                                            href="{{ asset('frontend/assets/img/portfolio/2.jpg') }}">
-                                            <h4>Blue Sea</h4>
-                                            <span>Photosho</span>
+                                        <a target="_blank" href="http://www.macroboiler-bd.com/">
+                                            <h4>Marco Engineer</h4>
+                                            <span>Web Development</span>
                                         </a>
                                     </div>
                                 </div>
@@ -321,7 +326,7 @@
                     <!-- portfolio-item end -->
 
                     <!-- portfolio-item start -->
-                    <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
+                    {{-- <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-card">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
                                 <a href="#"><img src="{{ asset('frontend/assets/img/portfolio/3.jpg') }}"
@@ -337,20 +342,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- portfolio-item end -->
 
                     <!-- portfolio-item start -->
                     <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
-                                <a href="#"><img src="assets/img/portfolio/4.jpg" alt="" /></a>
+                                <a target="_blank" href="http://projectonegolf.com/"><img
+                                        src="{{ asset('storage/images/portfolio-golf.jpg') }}" alt=""
+                                        style="height: 285px; object-fit: cover" /></a>
                                 <div class="add-actions text-center">
                                     <div class="project-dec">
-                                        <a class="portfolio-lightbox" data-gallery="myGallery"
-                                            href="assets/img/portfolio/4.jpg">
-                                            <h4>Creative Team</h4>
-                                            <span>Web design</span>
+                                        <a target="_blank" href="http://projectonegolf.com/"
+                                            href="{{ asset('storage/images/portfolio-web-1-full.jpg') }}">
+
+                                            <h4>Golf Academy</h4>
+
+                                            <span>Web Development</span>
                                         </a>
                                     </div>
                                 </div>
@@ -360,7 +369,27 @@
                     <!-- portfolio-item end -->
 
                     <!-- portfolio-item start -->
-                    <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
+                    <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+                        <div class="single-awesome-project">
+                            <div class="awesome-img">
+                                <a href="https://baystreetci.com/" target="_blank"><img
+                                        src="{{ asset('storage/images/portfolio_web-3.jpg') }}" alt=""
+                                        style="height: 285px;" /></a>
+                                <div class="add-actions text-center">
+                                    <div class="project-dec">
+                                        <a target="_blank" href="https://baystreetci.com/">
+                                            <h4>Bay Street Investment</h4>
+                                            <span>Web Development</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- portfolio-item end -->
+
+                    <!-- portfolio-item start -->
+                    {{-- <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-app">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
                                 <a href="#"><img src="assets/img/portfolio/5.jpg" alt="" /></a>
@@ -375,11 +404,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- portfolio-item end -->
 
                     <!-- portfolio-item start -->
-                    <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
+                    {{-- <div class="col-md-4 col-sm-4 col-xs-12 portfolio-item filter-web">
                         <div class="single-awesome-project">
                             <div class="awesome-img">
                                 <a href="#"><img src="assets/img/portfolio/6.jpg" alt="" /></a>
@@ -394,7 +423,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- portfolio-item end -->
                 </div>
             </div>
@@ -475,14 +504,14 @@
                             <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img"
                                     alt="" />
-                                <h3>Saul Goodman</h3>
-                                <h4>Ceo &amp; Founder</h4>
+                                <h3>Ali Badruddin</h3>
+                                <h4>Founder &amp; Bay Street Capital Investment</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Proin iaculis purus consequat sem cure digni ssim donec
-                                    porttitora entum suscipit rhoncus. Accusantium quam,
-                                    ultricies eget id, aliquam eget nibh et. Maecen aliquam,
-                                    risus at semper.
+                                    First of all thanks to Ekopii team for the job well done, Excellent
+                                    experience and extremely professional. I have truly enjoyed working
+                                    with Dream IT. I recommend this organization to get better service.
+                                    Ali Badruddin
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
@@ -493,72 +522,20 @@
                             <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img"
                                     alt="" />
-                                <h3>Sara Wilsson</h3>
-                                <h4>Designer</h4>
+                                <h3>Michale Cunninghum</h3>
+                                <h4>Director &amp; Player Development</h4>
                                 <p>
                                     <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Export tempor illum tamen malis malis eram quae irure esse
-                                    labore quem cillum quid cillum eram malis quorum velit fore
-                                    eram velit sunt aliqua noster fugiat irure amet legam anim
-                                    culpa.
+                                    Ekopii team did a fantastic job and exceeded my expectation. We
+                                    are thrilled with the new responsive site. It looks great visually, and
+                                    most importantly, we’ve already seen an uptick in conversation rates
+                                    within this first week of being live.
                                     <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                 </p>
                             </div>
                         </div>
                         <!-- End testimonial item -->
 
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img"
-                                    alt="" />
-                                <h3>Jena Karlis</h3>
-                                <h4>Store Owner</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Enim nisi quem export duis labore cillum quae magna enim
-                                    sint quorum nulla quem veniam duis minim tempor labore quem
-                                    eram duis noster aute amet eram fore quis sint minim.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img"
-                                    alt="" />
-                                <h3>Matt Brandon</h3>
-                                <h4>Freelancer</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa
-                                    multos export minim fugiat minim velit minim dolor enim duis
-                                    veniam ipsum anim magna sunt elit fore quem dolore labore
-                                    illum veniam.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
-
-                        <div class="swiper-slide">
-                            <div class="testimonial-item">
-                                <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img"
-                                    alt="" />
-                                <h3>John Larson</h3>
-                                <h4>Entrepreneur</h4>
-                                <p>
-                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                    Quis quorum aliqua sint quem legam fore sunt eram irure
-                                    aliqua veniam tempor noster veniam enim culpa labore duis
-                                    sunt culpa nulla illum cillum fugiat legam esse veniam culpa
-                                    fore nisi cillum quid.
-                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                </p>
-                            </div>
-                        </div>
-                        <!-- End testimonial item -->
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -566,143 +543,8 @@
         </div>
         <!-- End Testimonials Section -->
 
-        <!-- ======= Blog Section ======= -->
-        <div id="blog" class="blog-area">
-            <div class="blog-inner area-padding">
-                <div class="blog-overly"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 col-sm-12 col-xs-12">
-                            <div class="section-headline text-center">
-                                <h2>Latest News</h2>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- Start Left Blog -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="single-blog">
-                                <div class="single-blog-img">
-                                    <a href="blog.html">
-                                        <img src="assets/img/blog/1.jpg" alt="" />
-                                    </a>
-                                </div>
-                                <div class="blog-meta">
-                                    <span class="comments-type">
-                                        <i class="fa fa-comment-o"></i>
-                                        <a href="#">13 comments</a>
-                                    </span>
-                                    <span class="date-type">
-                                        <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                                    </span>
-                                </div>
-                                <div class="blog-text">
-                                    <h4>
-                                        <a href="blog.html">Assumenda repud eum veniam</a>
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum dolor sit amet conse adipis elit Assumenda
-                                        repud eum veniam optio modi sit explicabo nisi magnam
-                                        quibusdam.sit amet conse adipis elit Assumenda repud eum
-                                        veniam optio modi sit explicabo nisi magnam quibusdam.
-                                    </p>
-                                </div>
-                                <span>
-                                    <a href="blog.html" class="ready-btn">Read more</a>
-                                </span>
-                            </div>
-                            <!-- Start single blog -->
-                        </div>
-                        <!-- End Left Blog-->
-                        <!-- Start Left Blog -->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="single-blog">
-                                <div class="single-blog-img">
-                                    <a href="blog.html">
-                                        <img src="assets/img/blog/2.jpg" alt="" />
-                                    </a>
-                                </div>
-                                <div class="blog-meta">
-                                    <span class="comments-type">
-                                        <i class="fa fa-comment-o"></i>
-                                        <a href="#">130 comments</a>
-                                    </span>
-                                    <span class="date-type">
-                                        <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                                    </span>
-                                </div>
-                                <div class="blog-text">
-                                    <h4>
-                                        <a href="blog.html">Explicabo magnam quibusdam.</a>
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum dolor sit amet conse adipis elit Assumenda
-                                        repud eum veniam optio modi sit explicabo nisi magnam
-                                        quibusdam.sit amet conse adipis elit Assumenda repud eum
-                                        veniam optio modi sit explicabo nisi magnam quibusdam.
-                                    </p>
-                                </div>
-                                <span>
-                                    <a href="blog.html" class="ready-btn">Read more</a>
-                                </span>
-                            </div>
-                            <!-- Start single blog -->
-                        </div>
-                        <!-- End Left Blog-->
-                        <!-- Start Right Blog-->
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <div class="single-blog">
-                                <div class="single-blog-img">
-                                    <a href="blog.html">
-                                        <img src="assets/img/blog/3.jpg" alt="" />
-                                    </a>
-                                </div>
-                                <div class="blog-meta">
-                                    <span class="comments-type">
-                                        <i class="fa fa-comment-o"></i>
-                                        <a href="#">10 comments</a>
-                                    </span>
-                                    <span class="date-type">
-                                        <i class="fa fa-calendar"></i>2016-03-05 / 09:10:16
-                                    </span>
-                                </div>
-                                <div class="blog-text">
-                                    <h4>
-                                        <a href="blog.html">Lorem ipsum dolor sit amet</a>
-                                    </h4>
-                                    <p>
-                                        Lorem ipsum dolor sit amet conse adipis elit Assumenda
-                                        repud eum veniam optio modi sit explicabo nisi magnam
-                                        quibusdam.sit amet conse adipis elit Assumenda repud eum
-                                        veniam optio modi sit explicabo nisi magnam quibusdam.
-                                    </p>
-                                </div>
-                                <span>
-                                    <a href="blog.html" class="ready-btn">Read more</a>
-                                </span>
-                            </div>
-                        </div>
-                        <!-- End Right Blog-->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Blog Section -->
 
-        <!-- ======= Suscribe Section ======= -->
-        <div class="suscribe-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs=12">
-                        <div class="suscribe-text text-center">
-                            <h3>Welcome to our eBusiness company</h3>
-                            <a class="sus-btn" href="#">Get A quote</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Suscribe Section -->
+
 
         <!-- ======= Contact Section ======= -->
         <div id="contact" class="contact-area">
@@ -748,7 +590,7 @@
                                     <i class="bi bi-geo-alt"></i>
                                     <p>
                                         Location:H#17, Hazi Road/Commerce College Road, Darul Aman Grihanirman Samity,
-                                        Section-03<br />
+                                        Section-03
                                         <span>Mirpur, Dhaka</span>
                                     </p>
                                 </div>
@@ -774,17 +616,25 @@
                                     <div class="form-group">
                                         <input type="text" id="contactName" name="name" class="form-control"
                                             id="name" placeholder="Your Name" required />
+                                        <p id="contactNameError" class="text-danger mb-2">* Name have to be at least 4
+                                            charcter long.</p>
                                     </div>
                                     <div class="form-group mt-3">
                                         <input type="email" id="contactEmail" class="form-control" name="email"
                                             id="email" placeholder="Your Email" required />
+                                        <p id="contactEmailError" class="text-danger mb-2">* This have to be an email.
+                                        </p>
                                     </div>
                                     <div class="form-group mt-3">
                                         <input type="text" id="contactSubject" class="form-control"
                                             name="subject" id="subject" placeholder="Subject" required />
+                                        <p id="contactSubjectError" class="text-danger mb-2">* Subject have to be at
+                                            least 6 charcter long.</p>
                                     </div>
                                     <div class="form-group mt-3">
                                         <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="Message" required></textarea>
+                                        <p id="contactMessageError" class="text-danger mb-2">* Message have to be at
+                                            least 7 charcter long.</p>
                                     </div>
                                     {{-- <div class="my-3">
                                         <div id="messageLodingBtn" class="loading">Loading</div>

@@ -88,7 +88,7 @@ class AboutController extends Controller
             'our_mission' => 'required|min:10',
             'our_vision' => 'required|min:10',
            ]);
-           About::findOrFail($id)->update([
+           About::find($id)->update([
             'short_description' => $request->short_description,
             'who_we_are' => $request->who_we_are,
             'who_us' => $request->who_us,
