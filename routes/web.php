@@ -21,7 +21,7 @@ use App\Http\Controllers\Admin\HomeSliderController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'showAbout'])->name('about');
 Route::get('/services/{id}', [HomeController::class, 'showService'])->name('service');
 Route::post('/contact', [HomeController::class, 'postContact'])->name('store.contact');
@@ -35,7 +35,7 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('/admin/profile/edit/{id}', 'editProfile')->name('admin.profile.edit');
         Route::put('/admin/profile/edit/{id}', 'update')->name('admin.profile.update');
         Route::get('/admin/profile/edit/password/{id}', 'changePassword')->name('admin.change.password');
-        Route::put('/admin/profile/edit/password/{id}', 'updatePassword')->name('admin.store.password');
+        Route::put('/admin/profile/edit/password/{id}', 'updatePassword')->name('admin.change.password');
     });
 
     Route::prefix('slider')->group(function(){

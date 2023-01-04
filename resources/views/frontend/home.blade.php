@@ -1,5 +1,5 @@
 <x-frontend.layouts.master>
-    <x-slot name="pageTitle">Ekopaii</x-slot>
+    <x-slot name="pageTitle">ekopii</x-slot>
     <x-frontend.partials.hero />
     <main id="main">
         <!-- ======= About Section ======= -->

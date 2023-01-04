@@ -42,8 +42,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $service->service_title }}</td>
-                                            <td>{{ substr($service->landing_page_short_description, 0, 40) . '...' }}
-                                            </td>
+                                            <td>{{ substr($service->landing_page_short_description, 0, 40) . '...' }}</td>
                                             <td><img src="{{ asset('storage/' . $service->landing_page_logo) }}"
                                                     alt="{{ $service->service_titlee }}" height="60px" width="60px"
                                                     srcset=""></td>
