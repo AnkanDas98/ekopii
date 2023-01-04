@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\HomeSliderController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/about', [HomeController::class, 'showAbout'])->name('about');
+Route::get('/services/{id}', [HomeController::class, 'showService'])->name('service');
 Route::post('/contact', [HomeController::class, 'postContact'])->name('store.contact');
 
 Route::get('/admin/login', [AdminController::class, 'viewLogin'])->middleware('guest');
@@ -34,7 +35,7 @@ Route::middleware('auth', 'verified')->group(function () {
         Route::get('/admin/profile/edit/{id}', 'editProfile')->name('admin.profile.edit');
         Route::put('/admin/profile/edit/{id}', 'update')->name('admin.profile.update');
         Route::get('/admin/profile/edit/password/{id}', 'changePassword')->name('admin.change.password');
-        Route::put('/admin/profile/edit/password/{id}', 'updatePassword')->name('admin.change.password');
+        Route::put('/admin/profile/edit/password/{id}', 'updatePassword')->name('admin.store.password');
     });
 
     Route::prefix('slider')->group(function(){
@@ -46,35 +47,17 @@ Route::middleware('auth', 'verified')->group(function () {
             Route::put('/update/{id}', 'updateSlider')->name('update.slider');
             Route::patch('/status', 'updateSliderStaus')->name('update.slider.status');
             Route::delete('/delete/{id}', 'deleteSlider')->name('delete.slider');
-
-            // ==========for Service ================
-            // Route::get('/', 'getAllService')->name('all.service');
-            // Route::get('/add', 'addService')->name('add.service');
-            // Route::post('/add', 'storeService')->name('store.service');
-            // Route::get('/edit/{id}', 'editService')->name('edit.service');
-            // Route::put('/update/{id}', 'updateService')->name('update.service');
-            // Route::patch('/status', 'updateServiceStaus')->name('update.service.status');
-            // Route::delete('/delete/{id}', 'deleteService')->name('delete.service');
         });
     });
 
     // ==========for Service ================
     Route::prefix('service')->group(function(){
         Route::controller(ServiceController::class)->group(function(){
-            // Route::get('/', 'getAllSlider')->name('all.slider');
-            // Route::get('/add', 'addSlider')->name('add.slider');
-            // Route::post('/add', 'storeSlider')->name('store.slider');
-            // Route::get('/edit/{id}', 'editSlider')->name('edit.slider');
-            // Route::put('/update/{id}', 'updateSlider')->name('update.slider');
-            // Route::patch('/status', 'updateSliderStaus')->name('update.slider.status');
-            // Route::delete('/delete/{id}', 'deleteSlider')->name('delete.slider');
-
-            Route::get('/', 'getAllService')->name('all.service');
+            Route::get('/', 'getServices')->name('all.services');
             Route::get('/add', 'addService')->name('add.service');
             Route::post('/add', 'storeService')->name('store.service');
             Route::get('/edit/{id}', 'editService')->name('edit.service');
-            Route::put('/update/{id}', 'updateService')->name('update.service');
-            Route::patch('/status', 'updateServiceStaus')->name('update.service.status');
+            Route::patch('/update/{id}', 'updateService')->name('update.service');
             Route::delete('/delete/{id}', 'deleteService')->name('delete.service');
         });
     });

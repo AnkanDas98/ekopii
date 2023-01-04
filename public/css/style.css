@@ -5,12 +5,43 @@
     align-items: center;
     justify-content: center;
     margin-left: 12px;
-    border-radius: 12px;
+    border-radius: 5px;
     color: #000;
 }
 
 .contact-btn:hover{
     background-color: #538991;
+}
+
+.service-feature{
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 10px;
+}
+
+.service-feature::after{
+    position: absolute;
+    content: "";
+    background-image: url('/storage/images/check.svg');
+    left: 0;
+    top: 6px;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: 14px;
+}
+
+.technology{
+    background: #EEF6FD;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.service-title {
+    font-size: 36px;
+    line-height: 50px;
+    font-weight: 500;
+    margin-bottom: 40px;
 }
 
 @media(max-width: 1000px){

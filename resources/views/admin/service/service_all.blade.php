@@ -1,16 +1,16 @@
 <x-backend.layouts.master>
-    <x-slot name="pageTitle">Slider Data</x-slot>
+    <x-slot name="pageTitle">All Services</x-slot>
     <div class="page-content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0">Slider Tables</h4>
+                        <h4 class="mb-sm-0">Service Tables</h4>
 
                         <div class="page-title-right">
                             <ol class="breadcrumb m-0">
                                 <li class="breadcrumb-item"><a href="javascript: void(0);">Tables</a></li>
-                                <li class="breadcrumb-item active">Slider Tables</li>
+                                <li class="breadcrumb-item active">All Service</li>
                             </ol>
                         </div>
 
@@ -21,55 +21,52 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">All Sliders</h4>
+                            <h4 class="card-title">All Services</h4>
                             <table id="datatable" class="table table-bordered dt-responsive nowrap"
                                 style="border-collapse: collapse; border-spacing: 0; width: 100%;">
 
                                 <thead>
                                     <tr>
                                         <th>SI</th>
-                                        <th>Slider Short Title</th>
-                                        <th>Slider Long Title</th>
-                                        <th>Slider Image</th>
-                                        <th>Status</th>
+                                        <th>Service Title</th>
+                                        <th>Service Short Description</th>
+                                        <th>Service Landing page Logo</th>
+                                        <th>Service Image</th>
+                                        <th>Service Feature Image</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        $i = 1;
-                                    @endphp
-                                    @foreach ($sliders as $slider)
+
+                                    @foreach ($services as $key => $service)
                                         <tr>
-                                            <td>{{ $i++ }}</td>
-                                            <td>{{ $slider->slider_short_title }}</td>
-                                            <td>{{ $slider->slider_long_title }}</td>
-                                            <td><img src="{{ asset('storage/' . $slider->slider_image) }}"
-                                                    alt="{{ $slider->slider_short_title }}" height="60px"
-                                                    width="60px" srcset=""></td>
-                                            <td>{{ $slider->status ? 'Active' : 'Inactive' }}
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $service->service_title }}</td>
+                                            <td>{{ substr($service->landing_page_short_description, 0, 40) . '...' }}
+                                            </td>
+                                            <td><img src="{{ asset('storage/' . $service->landing_page_logo) }}"
+                                                    alt="{{ $service->service_titlee }}" height="60px" width="60px"
+                                                    srcset=""></td>
+                                            <td><img src="{{ asset('storage/' . $service->service_image) }}"
+                                                    alt="{{ $service->service_title }}" height="60px" width="60px"
+                                                    srcset="">
+                                            </td>
+
+                                            <td><img src="{{ asset('storage/' . $service->service_feature_image) }}"
+                                                    alt="{{ $service->service_title }}" height="60px" width="60px"
+                                                    srcset="">
                                             </td>
                                             <td>
-                                                <a href="{{ route('edit.slider', $slider->id) }}"
+                                                <a href="{{ route('edit.service', $service->id) }}"
                                                     class="btn btn-info mr-2" title="Edit Data"><i
                                                         class="fa fa-edit"></i></a>
-                                                <form id="deleteForm" action="{{ route('delete.slider', $slider->id) }}"
-                                                    method="POST" class="d-inline-block">
+                                                <form id="deleteForm"
+                                                    action="{{ route('delete.service', $service->id) }}" method="POST"
+                                                    class="d-inline-block">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger deleteBtn"
                                                         title="Delete Data"><i class="fa fa-trash"></i></button>
-                                                </form>
-
-                                                <form action="{{ route('update.slider.status') }}" method="POST"
-                                                    class="d-inline-block mr-2">
-                                                    @csrf
-                                                    @method('PATCH')
-                                                    <input type="hidden" name="slider_id" value="{{ $slider->id }}">
-                                                    <button type="submit"
-                                                        class="btn {{ $slider->status ? 'btn-danger' : 'btn-success' }}"
-                                                        title="{{ $slider->status ? 'Inactive Now' : 'Actice Now' }}"><i
-                                                            class="fa {{ $slider->status ? 'fa-arrow-down' : 'fa-arrow-up' }}"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

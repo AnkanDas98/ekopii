@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use App\Models\About;
 use App\Models\Contact;
+use App\Models\Service;
 use App\Models\AboutFeature;
 use App\Models\AboutGallery;
 use Illuminate\Http\Request;
+use App\Models\ServiceFeature;
 
 class HomeController extends Controller
 {
@@ -15,7 +17,8 @@ class HomeController extends Controller
 
         $about = About::first();
         $aboutFeatures = AboutFeature::orderBy('id', 'ASC')->limit(10)->get();
-        return view('frontend.home', compact('about', 'aboutFeatures'));
+        $services = Service::orderBy('id', 'ASC')->limit(6)->get();
+        return view('frontend.home', compact('about', 'aboutFeatures', 'services'));
     }
 
     public function showAbout(){
@@ -23,6 +26,13 @@ class HomeController extends Controller
         $galleyImages = AboutGallery::all();
         return view('frontend.about', compact('about','galleyImages'));
     }
+
+    public function showService($id){
+        $service = Service::where('id', $id)->first();
+        $serviceFeature = ServiceFeature::where('service_id', $id)->get();
+        return view('frontend.service', compact('service','serviceFeature'));
+    }
+
 
     public function postContact(Request $request){
         $request->validate([

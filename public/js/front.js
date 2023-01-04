@@ -4,9 +4,6 @@ async function postMessage(e) {
     const email = document.getElementById("contactEmail").value;
     const subject = document.getElementById("contactSubject").value;
     const message = document.getElementById("contactMessage").value;
-    document.getElementById("messageBtnText").style.display = "none";
-    document.getElementById("loadingIcon").style.display = "inline-block";
-    document.getElementById("loadingIcon").style.height = "20px;";
     try {
         const response = await fetch("/contact", {
             method: "POST",
@@ -31,8 +28,6 @@ async function postMessage(e) {
             document.getElementById("contactEmail").value = "";
             document.getElementById("contactSubject").value = "";
             document.getElementById("contactMessage").value = "";
-            document.getElementById("loadingIcon").style.display = "none";
-            document.getElementById("messageBtnText").style.display = "inline";
 
             const Toast = Swal.mixin({
                 toast: true,

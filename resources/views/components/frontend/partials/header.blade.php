@@ -1,23 +1,29 @@
+@php
+    $services = App\Models\Service::all();
+@endphp
+
 <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex justify-content-between">
         <div class="logo">
             <h1>
-                <a href="index.html"><img src="{{ asset('frontend/assets/img/Apps-Icon.png') }}" alt="" />kopii</a>
+                <a href="/"><img src="{{ asset('frontend/assets/img/Apps-Icon.png') }}" alt="" />kopii</a>
             </h1>
         </div>
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                <li><a class="nav-link scrollto" href="#about">About</a></li>
+                <li><a class="nav-link scrollto active" href="/">Home</a></li>
+                <li><a class="nav-link scrollto" href="{{ route('about') }}">About</a></li>
                 <li class="dropdown">
                     <a href="#"><span>Services</span></a>
                     <ul>
-                        <li><a href="#">
-                                Wordpress Development</a></li>
-                        <li><a href="#">Web Development</a></li>
+                        @foreach ($services as $service)
+                            <li><a href="{{ route('service', $service->id) }}">
+                                    {{ $service->service_title }}</a></li>
+                        @endforeach
+                        {{-- <li><a href="#">Web Development</a></li>
                         <li><a href="#">Graphic Design</a></li>
-                        <li><a href="#">SEO Integration</a></li>
+                        <li><a href="#">SEO Integration</a></li> --}}
                     </ul>
                 </li>
                 <!-- <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->

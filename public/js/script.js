@@ -10,6 +10,18 @@ function appendFeatures(e) {
     document.getElementById("featureBox").appendChild(newNode, null);
 }
 
+function appendServiceFeatures(e) {
+    e.preventDefault();
+    j++;
+    const newNode = document.createElement("textarea");
+    newNode.setAttribute("name", `addMoreInputFields[${j}][services]`);
+    newNode.classList.add("w-50");
+    newNode.classList.add("form-control");
+    newNode.style.marginBottom = "12px";
+    newNode.setAttribute("placeholder", `Add Feature ${j + 1}`);
+    document.getElementById("serviceFeatureBox").appendChild(newNode, null);
+}
+
 const image_input = document.querySelector("#image");
 if (image_input) {
     image_input.addEventListener("change", function () {
@@ -50,5 +62,20 @@ forms.forEach((form) => {
 });
 
 const featureBtn = document.getElementById("featureBtn");
-let i = featureBtn.dataset.featureLength ? featureBtn.dataset.featureLength : 0;
+let i = featureBtn
+    ? featureBtn.dataset.featureLength
+        ? featureBtn.dataset.featureLength
+        : 0
+    : null;
 featureBtn && featureBtn.addEventListener("click", (e) => appendFeatures(e));
+
+const serviceFeatureBtn = document.getElementById("serviceFeatureBtn");
+let j = serviceFeatureBtn
+    ? serviceFeatureBtn.dataset.featureLength
+        ? serviceFeatureBtn.dataset.featureLength
+        : 0
+    : null;
+serviceFeatureBtn &&
+    serviceFeatureBtn.addEventListener("click", (e) =>
+        appendServiceFeatures(e)
+    );

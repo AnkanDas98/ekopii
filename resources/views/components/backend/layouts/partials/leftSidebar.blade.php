@@ -62,17 +62,21 @@
 
                 <li>
                     <a href="javascript: void(0);"
-                        class="has-arrow waves-effect {{ $prefix == '/service' ? 'active' : '' }}">
+                        class="has-arrow waves-effect {{ $prefix == '/slider' ? 'active' : '' }}">
                         <i class="ri-mail-send-line"></i>
-                        <span>Service</span>
+                        <span>Services</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a>Services</a>
+                        <li class="{{ $route == 'all.services' ? 'active' : '' }}"><a
+                                href="{{ route('all.services') }}">All
+                                Services</a>
                         </li>
-                        <li><a>Add
-                                Service</a></li>
+                        <li class="{{ $route == 'add.service' ? 'active' : '' }}"><a
+                                href="{{ route('add.service') }}">Add
+                                Services</a></li>
                     </ul>
                 </li>
+
 
                 <li>
                     <a href="javascript: void(0);"

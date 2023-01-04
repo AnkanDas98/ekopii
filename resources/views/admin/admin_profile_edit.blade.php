@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Edit Profile</h4>
-                            <form method="POST" action="{{ route('admin.profile.update', $adminData->id) }}"
+                            <form method="POST" action="{{ route('admin.store.password', $adminData->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')

@@ -48,6 +48,7 @@
                     <!-- End col-->
                 </div>
             </div>
+
         </div>
         <!-- End About Section -->
 
@@ -63,120 +64,26 @@
                 </div>
                 <div class="row text-center">
                     <!-- Start Left services -->
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="about-move">
-                            <div class="services-details">
-                                <div class="single-services">
-                                    <a class="services-icon" href="#">
-                                        <i class="bi bi-briefcase"></i>
-                                    </a>
-                                    <h4>Expert Coder</h4>
-                                    <p>
-                                        will have to make sure the prototype looks finished by
-                                        inserting text or photo.make sure the prototype looks
-                                        finished by.
-                                    </p>
+                    @foreach ($services as $service)
+                        <div class="col-md-4 col-sm-4 col-xs-12">
+                            <div class="about-move">
+                                <div class="services-details">
+                                    <div class="single-services">
+                                        <a class="services-icon" href="{{ route('service', $service->id) }}">
+                                            <img src="{{ asset('storage/' . $service->landing_page_logo) }}"
+                                                alt="{{ $service->service_title }}">
+                                        </a>
+                                        <h4>{{ $service->service_title }}</h4>
+                                        <p>
+                                            {{ $service->landing_page_short_description }}
+                                        </p>
+                                    </div>
                                 </div>
+                                <!-- end about-details -->
                             </div>
-                            <!-- end about-details -->
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <div class="about-move">
-                            <div class="services-details">
-                                <div class="single-services">
-                                    <a class="services-icon" href="#">
-                                        <i class="bi bi-card-checklist"></i>
-                                    </a>
-                                    <h4>Creative Designer</h4>
-                                    <p>
-                                        will have to make sure the prototype looks finished by
-                                        inserting text or photo.make sure the prototype looks
-                                        finished by.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- end about-details -->
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <!-- end col-md-4 -->
-                        <div class="about-move">
-                            <div class="services-details">
-                                <div class="single-services">
-                                    <a class="services-icon" href="#">
-                                        <i class="bi bi-bar-chart"></i>
-                                    </a>
-                                    <h4>Wordpress Developer</h4>
-                                    <p>
-                                        will have to make sure the prototype looks finished by
-                                        inserting text or photo.make sure the prototype looks
-                                        finished by.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- end about-details -->
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <!-- end col-md-4 -->
-                        <div class="about-move">
-                            <div class="services-details">
-                                <div class="single-services">
-                                    <a class="services-icon" href="#">
-                                        <i class="bi bi-binoculars"></i>
-                                    </a>
-                                    <h4>Social Marketer</h4>
-                                    <p>
-                                        will have to make sure the prototype looks finished by
-                                        inserting text or photo.make sure the prototype looks
-                                        finished by.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- end about-details -->
-                        </div>
-                    </div>
-                    <!-- End Left services -->
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <!-- end col-md-4 -->
-                        <div class="about-move">
-                            <div class="services-details">
-                                <div class="single-services">
-                                    <a class="services-icon" href="#">
-                                        <i class="bi bi-brightness-high"></i>
-                                    </a>
-                                    <h4>Seo Expart</h4>
-                                    <p>
-                                        will have to make sure the prototype looks finished by
-                                        inserting text or photo.make sure the prototype looks
-                                        finished by.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- end about-details -->
-                        </div>
-                    </div>
-                    <!-- End Left services -->
-                    <div class="col-md-4 col-sm-4 col-xs-12">
-                        <!-- end col-md-4 -->
-                        <div class="about-move">
-                            <div class="services-details">
-                                <div class="single-services">
-                                    <a class="services-icon" href="#">
-                                        <i class="bi bi-calendar4-week"></i>
-                                    </a>
-                                    <h4>24/7 Support</h4>
-                                    <p>
-                                        will have to make sure the prototype looks finished by
-                                        inserting text or photo.make sure the prototype looks
-                                        finished by.
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- end about-details -->
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -197,7 +104,7 @@
                         <div class="single-team-member">
                             <div class="team-img">
                                 <a href="#">
-                                    <img src="assets/img/team/1.jpg" alt="" />
+                                    <img src="{{ asset('frontend/assets/img/team/1.jpg') }}" alt="" />
                                 </a>
                                 <div class="team-social-icon text-center">
                                     <ul>
@@ -230,7 +137,7 @@
                         <div class="single-team-member">
                             <div class="team-img">
                                 <a href="#">
-                                    <img src="assets/img/team/2.jpg" alt="" />
+                                    <img src="{{ asset('frontend/assets/img/team/2.jpg') }}" alt="" />
                                 </a>
                                 <div class="team-social-icon text-center">
                                     <ul>
@@ -263,7 +170,7 @@
                         <div class="single-team-member">
                             <div class="team-img">
                                 <a href="#">
-                                    <img src="assets/img/team/3.jpg" alt="" />
+                                    <img src="{{ asset('frontend/assets/img/team/3.jpg') }}" alt="" />
                                 </a>
                                 <div class="team-social-icon text-center">
                                     <ul>
@@ -296,7 +203,7 @@
                         <div class="single-team-member">
                             <div class="team-img">
                                 <a href="#">
-                                    <img src="assets/img/team/4.jpg" alt="" />
+                                    <img src="{{ asset('frontend/assets/img/team/4.jpg') }}" alt="" />
                                 </a>
                                 <div class="team-social-icon text-center">
                                     <ul>
@@ -816,7 +723,7 @@
                                 <div class="single-icon">
                                     <i class="bi bi-phone"></i>
                                     <p>
-                                        Call: +1 5589 55488 55<br />
+                                        Call: +88 01625571559<br />
                                         <span>Monday-Friday (9am-5pm)</span>
                                     </p>
                                 </div>
@@ -828,8 +735,8 @@
                                 <div class="single-icon">
                                     <i class="bi bi-envelope"></i>
                                     <p>
-                                        Email: info@example.com<br />
-                                        <span>Web: www.example.com</span>
+                                        Email: contact@ekopii.com<br />
+                                        <span>Web: www.ekopii.com</span>
                                     </p>
                                 </div>
                             </div>
@@ -840,8 +747,9 @@
                                 <div class="single-icon">
                                     <i class="bi bi-geo-alt"></i>
                                     <p>
-                                        Location: A108 Adam Street<br />
-                                        <span>NY 535022, USA</span>
+                                        Location:H#17, Hazi Road/Commerce College Road, Darul Aman Grihanirman Samity,
+                                        Section-03<br />
+                                        <span>Mirpur, Dhaka</span>
                                     </p>
                                 </div>
                             </div>
@@ -852,7 +760,7 @@
                         <div class="col-md-6">
                             <!-- Start Map -->
                             <iframe
-                                src="https://maps.google.com/maps?q=jamal%20khan,%20Chittagong&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                                src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=23.806393156145457,%2090.35288134208368+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                                 width="100%" height="380" frameborder="0" style="border: 0"
                                 allowfullscreen></iframe>
                             <!-- End Map -->
