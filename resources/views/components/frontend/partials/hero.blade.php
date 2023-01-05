@@ -16,11 +16,11 @@
                         style="background-image: url({{ asset('storage/' . $slider->slider_image) }})">
                         <div class="carousel-container">
                             <div class="container">
-                                <h2 class="animate__animated animate__fadeInDown">
+                                <!-- <h2 class="animate__animated animate__fadeInDown">
                                     {{ $slider->slider_short_title }}
-                                </h2>
-                                <p class="animate__animated animate__fadeInUp">
-                                    {{ $slider->slider_long_title }}
+                                </h2> -->
+                                <p class="animate__animated animate__fadeInUp" style="color:#e9ecef; font-weight:700">
+                                    {{ $slider->slider_short_title }}
                                 </p>
                                 <a href="#about"
                                     class="btn-get-started scrollto animate__animated animate__fadeInUp">Get

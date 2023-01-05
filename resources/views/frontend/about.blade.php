@@ -32,13 +32,13 @@
                     </div>
                     <div class="col-md-6">
                         <img style="width:400px; height: 400px;" class="img-fluid rounded"
-                            src="{{ asset('storage/images/about/next-steps-pana.png') }}" alt="next steps pana">
+                            src="{{ asset('storage/images/about/Who.jpg') }}" alt="Who are we">
                     </div>
                 </div>
                 <div class="row align-items-center" style="margin-bottom: 35px;">
                     <div class="col-md-6">
                         <img style="width:400px; height: 400px;" class="img-fluid rounded"
-                            src="{{ asset('storage/images/about/next-steps-pana.png') }}" alt="next steps pana">
+                            src="{{ asset('storage/images/about/Why.png') }}" alt="Why us">
                     </div>
                     <div class="col-md-6">
                         <h2>Why Us</h2>
@@ -58,7 +58,7 @@
                 <div class="row align-items-center" style="margin-bottom: 35px;">
                     <div class="col-md-6">
                         <img style="width:400px; height: 400px;" class="img-fluid rounded"
-                            src="{{ asset('storage/images/about/next-steps-pana.png') }}" alt="next steps pana">
+                            src="{{ asset('storage/images/about/mission.jpg') }}" alt="Our mission">
                     </div>
                     <div class="col-md-6">
                         <div class="d-flex flex-column justify-content-center gap-4">
